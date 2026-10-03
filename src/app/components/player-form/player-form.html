@@ -1,0 +1,110 @@
+<div class="form-container">
+  <h2 class="form-title">Register Manager Profile</h2>
+  
+  <form (ngSubmit)="onSubmit()" #profileForm="ngForm" class="manager-form">
+    
+    <div class="form-group">
+      <label for="fullName">Full Name</label>
+      <input 
+        type="text" 
+        id="fullName" 
+        name="fullName" 
+        [(ngModel)]="managerProfile.fullName" 
+        required 
+        class="form-input" 
+        placeholder="e.g. Eden Videla"
+      />
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col">
+        <label for="age">Age</label>
+        <input 
+          type="number" 
+          id="age" 
+          name="age" 
+          [(ngModel)]="managerProfile.age" 
+          required 
+          class="form-input"
+        />
+      </div>
+
+      <div class="form-group col">
+        <label for="hourlyRate">Hourly Rate ($)</label>
+        <input 
+          type="number" 
+          id="hourlyRate" 
+          name="hourlyRate" 
+          [(ngModel)]="managerProfile.hourlyRate" 
+          required 
+          class="form-input"
+        />
+      </div>
+    </div>
+
+    <div class="form-group checkbox-group">
+      <input 
+        type="checkbox" 
+        id="isActive" 
+        name="isActive" 
+        [(ngModel)]="managerProfile.isActive"
+      />
+      <label for="isActive">Is Active Manager</label>
+    </div>
+
+    <div class="form-group">
+      <label for="joinDate">Join Date</label>
+      <input 
+        type="date" 
+        id="joinDate" 
+        name="joinDate" 
+        [(ngModel)]="managerProfile.joinDate" 
+        required 
+        class="form-input"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="skills">Skills (Comma-separated)</label>
+      <input 
+        type="text" 
+        id="skills" 
+        name="skills" 
+        [(ngModel)]="managerProfile.skills" 
+        required 
+        class="form-input" 
+        placeholder="e.g. Scouting, Team Chemistry, Tactical Analysis"
+      />
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col">
+        <label for="city">City</label>
+        <input 
+          type="text" 
+          id="city" 
+          name="city" 
+          [(ngModel)]="managerProfile.city" 
+          required 
+          class="form-input"
+        />
+      </div>
+
+      <div class="form-group col">
+        <label for="country">Country</label>
+        <input 
+          type="text" 
+          id="country" 
+          name="country" 
+          [(ngModel)]="managerProfile.country" 
+          required 
+          class="form-input"
+        />
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="!profileForm.valid" class="submit-btn">
+      Confirm Manager Credentials
+    </button>
+  </form>
+</div>

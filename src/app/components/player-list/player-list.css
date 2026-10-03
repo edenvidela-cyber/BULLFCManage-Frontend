@@ -1,0 +1,106 @@
+.list-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: sans-serif;
+}
+
+.loading-text, .empty-text {
+  color: #aaa;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.error-text {
+  color: #ff3333;
+  text-align: center;
+  font-weight: bold;
+}
+
+.managers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.manager-card {
+  background-color: #030d03;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 20px;
+  position: relative;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.manager-card:hover {
+  transform: translateY(-3px);
+  border-color: #ccff00;
+}
+
+.manager-card.inactive {
+  opacity: 0.6;
+  border-color: #222;
+}
+
+.card-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background-color: #444;
+  color: #fff;
+}
+
+.card-badge.badge-active {
+  background-color: #ccff00;
+  color: #000;
+}
+
+.manager-name {
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  border-bottom: 1px dashed #222;
+  padding-bottom: 8px;
+}
+
+.manager-meta p {
+  color: #ccc;
+  font-size: 0.9rem;
+  margin: 6px 0;
+}
+
+.manager-meta strong {
+  color: #ccff00;
+}
+
+.skills-section {
+  margin-top: 15px;
+}
+
+.skills-label {
+  color: #888;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-tag {
+  background-color: #111;
+  border: 1px solid #444;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 2px 6px;
+  border-radius: 3px;
+}

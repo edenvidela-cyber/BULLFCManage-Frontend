@@ -1,0 +1,36 @@
+<div class="list-wrapper">
+  @if (isLoading) {
+    <p class="loading-text">Loading tactical system credentials...</p>
+  } @else if (errorMessage) {
+    <p class="error-text">{{ errorMessage }}</p>
+  } @else if (managers.length === 0) {
+    <p class="empty-text">No manager documents established. Head over to "Forge Player" to create your profile credentials!</p>
+  } @else {
+    <div class="managers-grid">
+      @for (manager of managers; track manager._id) {
+        <div class="manager-card" [class.inactive]="!manager.isActive">
+          <div class="card-badge" [class.badge-active]="manager.isActive">
+            {{ manager.isActive ? 'ACTIVE' : 'INACTIVE' }}
+          </div>
+          <h3 class="manager-name">{{ manager.fullName }}</h3>
+          
+          <div class="manager-meta">
+            <p><strong>Age:</strong> {{ manager.age }}</p>
+            <p><strong>Hourly Evaluation:</strong> ${{ manager.hourlyRate }}/hr</p>
+            <p><strong>Deployment Date:</strong> {{ manager.joinDate | date:'mediumDate' }}</p>
+            <p><strong>Base Command:</strong> {{ manager.city }}, {{ manager.country }}</p>
+          </div>
+          
+          <div class="skills-section">
+            <span class="skills-label">Specializations:</span>
+            <div class="skills-tags">
+              @for (skill of manager.skills.split(','); track skill) {
+                <span class="skill-tag">{{ skill.trim() }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>

@@ -1,0 +1,47 @@
+<div class="list-wrapper">
+  @if (isLoading) {
+    <p class="loading-text">Decrypting Tactical Card Vault records...</p>
+  } @else if (errorMessage) {
+    <p class="error-text">{{ errorMessage }}</p>
+  } @else if (players.length === 0) {
+    <p class="empty-text">No player blueprints found inside your tactical card database. Design one in "Create Card Style"!</p>
+  } @else {
+    <div class="cards-grid">
+      @for (player of players; track player._id) {
+        <div class="player-card-container">
+          
+          <div class="fut-card">
+            
+            <div class="card-top">
+              <div class="rating-badge">
+                <span class="ovr-text">{{ player.ovr }}</span>
+                <span class="pos-text">{{ player.position }}</span>
+              </div>
+              <div class="avatar-wrapper">
+                <img 
+                  [src]="player.photoUrl" 
+                  (error)="handleImageError($event)" 
+                  [alt]="player.name" 
+                  class="player-avatar" 
+                />
+              </div>
+            </div>
+
+            <div class="card-name-section">
+              <h3 class="player-name">{{ player.name }}</h3>
+            </div>
+
+            <div class="card-stats">
+              @for (statKey of getStatKeys(player.stats); track statKey) {
+                <div class="stat-box">
+                  <span class="stat-val">{{ player.stats[statKey] }}</span>
+                  <span class="stat-lbl">{{ statKey.toUpperCase() }}</span>
+                </div>
+              }
+            </div>
+
+          </div> </div>
+      }
+    </div>
+  }
+</div>
